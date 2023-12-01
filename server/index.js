@@ -1,6 +1,7 @@
  const express = require('express');
  const bodyParser = require('body-parser');
  const axios = require('axios');
+ const cors = require('cors');
 
  //database
  const db = require('./db');
@@ -12,6 +13,7 @@ const port = 5000;
 //middlewares
 app.use(bodyParser.urlencoded({extended:true}));//body-parser middleware for urlencoded
 app.use(bodyParser.json()); // body-parser for json format
+app.use(cors()); //cors middleware
 
 //create a todo
 app.post("/todo", async (req, res) => {
